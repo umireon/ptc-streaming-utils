@@ -54,3 +54,19 @@ def decrement(config: AppConfig) -> None:
             output_text = m[1] + str(value) + m[3]
         fp.seek(0)
         fp.write(output_text)
+
+def reset(config: AppConfig) -> None:
+    if not exists(config.path):
+        with open(config.path, 'w') as fp:
+            pass
+
+    with open(config.path, 'r+') as fp:
+        input_text = fp.read()
+        m = re.match('^(.*)(\d+)(.*)$', input_text)
+        if m is None:
+            output_text = "6"
+        else:
+            value = 6
+            output_text = m[1] + str(value) + m[3]
+        fp.seek(0)
+        fp.write(output_text)
