@@ -31,8 +31,7 @@ def increment(config: AppConfig) -> None:
             output_text = "1"
         else:
             value = int(m[2])
-            if value < 6:
-                value += 1
+            value += 1
             output_text = m[1] + str(value) + m[3]
         fp.seek(0)
         fp.write(output_text)
